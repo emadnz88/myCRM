@@ -1,0 +1,46 @@
+ <ng-container *ngIf="customers.length;else noCustomers">
+  <h5 class="text-primary text-center ">{{email}}</h5>
+ 
+    <div class="input-group mx-2">
+        <input  class="form-control" type="text" placeholder="search by First Name" [(ngModel)]="firstName" >
+    <input class="form-control" type="text" placeholder="search by Last Name " [(ngModel)]="lastName" >
+    <input class="form-control " type="text" placeholder="search by Phone Number" [(ngModel)]="phone" >
+    </div>
+
+    <ng-container *ngIf="customers | filter:'firstName':firstName |filter:'lastName':lastName |filter :'phone':phone as customers">
+        
+    <table class="table bg-info">
+  <thead>
+    <tr>
+      <th scope="col" class="text-danger">#</th>
+      <th scope="col" class="text-warning">firstName</th>
+      <th scope="col" class="text-secondary">LastName</th>
+      <th scope="col" class="text-primary">Email</th>
+       <th scope="col" class="text-light">Phone</th>
+       <th scope="col" class="text-success">Edit</th>
+    <th scope="col" class="text-dark">Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers;index as i">
+        <td>{{i+1}}</td>
+        <td>{{customer.firstName}}</td>
+        <td>{{customer.lastName}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.phone}}</td>
+        <td><a (click)="updateCustomer(customer)"><i class="fa-solid fa-pen"></i></a></td>
+        <td><a (click)="deleteCustomer(customer)"><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+  </tbody>
+   
+</table>
+
+    </ng-container>
+    
+    
+  
+   
+</ng-container>
+<ng-template #noCustomers>
+    <h6>thers no customers</h6>
+
+</ng-template>

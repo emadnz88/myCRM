@@ -1,0 +1,22 @@
+<div class="container col-5 mt-3">
+    <form #loginForm="ngForm" (ngSubmit)="login()">
+    <h2 class="display-3 text-center text-danger">LoGiN</h2>
+    <div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" [(ngModel)]="user.email" email required #email="ngModel">
+  <small class="text-danger" *ngIf="email.invalid && email.dirty">wrong email format</small>
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="user.password" minlength="6" required #password="ngModel">
+   <small class="text-danger" *ngIf="password.invalid && password.dirty">wrong password format</small>
+  <label for="floatingPassword">Password</label>
+  <button class="btn btn-success w-100 mt-3">LOGIN</button>
+  </div>
+ 
+  
+ </form>
+ <button class="btn btn-outline-primary w-100 mt-3" (click)="loginWithGoogle()"> Login With Google <i class="fa-brands fa-google text-danger"></i>
+</button>
+  
+
+</div>

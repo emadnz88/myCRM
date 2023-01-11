@@ -1,0 +1,33 @@
+<form class="bg-warning" #addCustomer="ngForm" (ngSubmit)="addNewCustomer()" >
+    <h5 class="text-center text-primary"> <p class="text-danger"><i class="fa-solid fa-user-plus"></i></p> Add New Customer</h5>
+    
+    <div class="mb-3">
+  <label for="firstName" class="form-label"> First Name</label>
+  <input type="text" class="form-control" id="firstName" placeholder="enter first name" name="firstName"
+  [(ngModel)]="customer.firstName" #name="ngModel" required >
+</div>
+<div class="mb-3">
+  <label for="lastName" class="form-label"> Last Name</label>
+  <input type="text" class="form-control" id="lastName" placeholder="enter last name" name="lastName"
+  [(ngModel)]="customer.lastName" #lastName="ngModel" required>
+</div>
+
+<div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input type="email" class="form-control" id="email" placeholder="enter email" name="email"
+  [(ngModel)]="customer.email" #email="ngModel" required email>
+</div>
+
+<div class="mb-3">
+  <label for="phone" class="form-label ">Phone</label>
+  <input type="text" class="form-control " id="phone" placeholder="enter phone" name="phone"
+  [(ngModel)]="customer.phone" #phone="ngModel" required >
+</div>
+
+
+<div d-flex justify-content->
+<button type="submit" class="btn btn-outline-primary my-5 form-control ">Add Customer</button>
+</div>
+
+
+</form>
